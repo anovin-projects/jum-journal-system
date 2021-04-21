@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load honeypot %}
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    {% include 'head.html' %}
+<body>
+    {% include 'menu.html' %}
+    <section>
+        <div class="container-lg p-3">
+              <div class="row p-1">
+                        <button type="button" class="btn btn-success btn-lg btn-block">
+                            <strong>Please fill out the form below.</strong>
+                        </button>
+                     </div>
+              </div>
+            </div>
+              <div class="row p-5">
+            <div class="container-sm shadow p-3 mb-4 bg-white rounded">
+                            <form action="" method="post">
+                                        {% csrf_token %}
+                                        {% render_honeypot_field "phonenumber" %}
+                                        {{ contact_form }}
+                                        <small id="emailHelp" class="form-text text-muted p-1">We'll never share your information with anyone else.</small>
+                                        <br>
+                                        <div class="modal-footer">
+                                            <input type="submit" class="btn btn-outline-primary" value="Submit">
+                                        </div>
+                                    </form>
+                        </div>    </div>
+              </div>
+
+    </section>
+    {% include 'footer.html' %}
+</body>
+</html>

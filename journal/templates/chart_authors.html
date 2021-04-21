@@ -1,0 +1,105 @@
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'doughnut',
+
+    // The data for our dataset
+    data: {
+        labels: [
+            {% for degree in degree_counts %}
+            '{{ degree.degree }}',
+            {% endfor %}
+        ],
+        datasets: [{
+            label: 'Authors by degree',
+            backgroundColor: [
+            '#ef0006',
+            '#f0bd24',
+            '#4ea825',
+            '#0984ab',
+
+            ],
+            data: [
+            {% for degree in degree_counts %}
+            {{ degree.id__count }},
+            {% endfor %}]
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+            responsive:false
+    }
+
+});
+    </script>
+
+<script>
+var ctx = document.getElementById('myChart2').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'doughnut',
+
+    // The data for our dataset
+    data: {
+        labels: [
+        {% for a in m_by_volume_count %}
+        'Volume: {{ a.citation_volume }}',
+        {% endfor %}
+        ],
+        datasets: [{
+            label: 'Authors by degree',
+            backgroundColor: [
+            '#00C1FF',
+            '#0984AB',
+            '#05536C',
+            '#0EDFC6',
+            '#096C60',
+            ],
+            data: [
+            {% for a in m_by_volume_count %}
+            {{ a.id__count }},
+            {% endfor %}]
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+            responsive:false
+    }
+
+});
+    </script>
+
+<script>
+var ctx = document.getElementById('myChart3').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'radar',
+
+    // The data for our dataset
+    data: {
+        labels: [
+        {% for b in section_count %}
+        '{{ b.section__title }}',
+        {% endfor %}
+        ],
+        datasets: [{
+            label: 'Remove data here',
+            backgroundColor: ['#0984ab'],
+            data: [
+            {% for b in section_count %}
+            {{ b.id__count }},
+            {% endfor %}
+            ]
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+            responsive:false
+    }
+
+});
+    </script>
