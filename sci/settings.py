@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!with open('/bots.txt') as f:
 #     SECRET_KEY = f.read().strip()
 
-SECRET_KEY = '*2^-hf$%)08eyj7*1&_q%fs_5b0h&qm0$u)#!f0cy0g*9eq)*b'
+SECRET_KEY = ''
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -175,5 +175,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #EMAIL_HOST = 'smtp.gmail.com'
 #EMAIL_USE_TLS = True
 #EMAIL_PORT = 587
-#EMAIL_HOST_USER = 'anovski32@gmail.com'
-#EMAIL_HOST_PASSWORD = '@staphylininae'
+#EMAIL_HOST_USER = ''
+#EMAIL_HOST_PASSWORD = ''
