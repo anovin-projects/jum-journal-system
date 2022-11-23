@@ -1,0 +1,43 @@
+{% load static %}
+<section id="home" class="pb-4 pt-4">
+    <div class="container pb-4 pt-4">
+        <div class="row justify-content-center align-items-center" align="center">
+            <div class="col-sm justify-content-center" align="center">
+                <h1>Jum journal system (BETA)</h1>
+                <p>Open source scientific journal system written in Python (Django).
+                    Designed with ease to comply with the latest Google Scholar Webmaster guidelines.</p>
+                <div class="row justify-content-center p-4">
+                    <a href="{% url 'index' %}" style="background-color:#bd3a4c; color:white;" type="button" class="btn p-2 m-1" >Demo</a>
+                    <a href="" style="background-color:#bd3a4c; color:white;" type="button" class="btn p-2 m-1">How to deploy</a>
+                    <a href="https://github.com/starscream32/jum-journal-system" style="background-color:#bd3a4c; color:white;" type="button" class="btn p-2 m-1">Repository</a>
+                </div>
+
+            </div>
+            <div class="col-sm">
+                <h2>Features</h2>
+                <ul class="list-group" align="center">
+                    <li class="list-group-item">
+                        Fully responsive web application.
+                    </li>
+                    <li class="list-group-item">
+                        The metadata is designed to comply with the latest <a href="https://scholar.google.com/intl/en/scholar/inclusion.html" target="_blank">Google Scholar Webmaster Guidelines</a> for inclusion and indexing by Google Scholar.
+                    </li>
+                    <li class="list-group-item">
+                        Create, read, update and delete Manuscripts, Volumes, Issues, Category, Sections, Authors, Announcements, Blog Posts and Blog Tags
+                    </li>
+                    <li class="list-group-item">
+                        Filter and search by title, abstract, keywords, volumes, issues.
+                    </li>
+                    <li class="list-group-item">
+                        The application can easily communicate with other systems via the REST API. [beta - only GET requests are available for now.]
+                    </li>
+                    <li class="list-group-item">
+                        Automatically generated manuscript sitemap for search engine optimization.
+                    </li>
+                </ul>
+                <br>
+                <a href="{% url 'models' %}" style="background-color:#bd3a4c; color:white;" type="button" class="btn">Visualize the models</a>
+            </div>
+        </div>
+    </div>
+</section>

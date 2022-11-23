@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Search</title>
+    <meta name="description" content="Advanced search. Bulletin of the biology students' research society.">
+    {% include 'head.html' %}
+</head>
+<body>
+{% include 'menu.html' %}
+        <div class="col align-self-center">
+            <h2  align="center">Advanced Search</h2>
+            <form class="form-inline p-3" method="get">
+              <div class="container p-3 shadow-sm d-flex justify-content-center">
+                  <div class="row justify-content-center">
+                        <div class="p-1">
+                          {{ filter.form.citation_title }}
+                        </div>
+                        <div class="p-1">
+                          {{ filter.form.abstract }}
+                        </div>
+                        <div class="p-1">
+                          {{ filter.form.keywords }}
+                        </div>
+                        <div class="p-1">
+                          {{ filter.form.citation_volume }}
+                        </div>
+                        <div class="p-1">
+                          {{ filter.form.section }}
+                        </div>
+                        <div class="p-1">
+                            <button class="btn btn btn-outline-primary" type="submit">Search</button>
+                        </div>
+                  </div>
+              </div>
+            </form>
+                </div>
+            <div class="col align-self-center p-3" >
+                {% for m in filter.qs %}
+                    <div class="container shadow-sm p-3 mb-4 bg-white rounded">
+                        <div class="row" style="float:left; margin-top:-25px; margin-left:-25px;">
+                                    <lottie-player
+                                            src="https://assets4.lottiefiles.com/packages/lf20_wekndypn.json"
+                                            background="transparent"
+                                            speed="0.4"
+                                            style="width: 50px; height: 50px;"
+                                            autoplay>
+                                    </lottie-player>
+                        </div>
+                        <div class="container">
+                            <span class="badge badge-pill badge-light float-sm-right  p-1">pp. {{ m.citation_firstpage }}-{{ m.citation_lastpage }} in {{ m.citation_volume }}</span>
+                          <a href="{{ m.get_absolute_url }}" class="text-dark"><h5>{{ m.citation_title }}</h5></a>
+                        </div>
+                        <div class="container">
+                            {% for author in m.authors.all %}
+                            <a href="{{ m.get_absolute_url }}" class="badge badge-light">{{ author }}</a>
+
+                                        {% endfor %}
+                        </div>
+                            <br>
+                            <div class="container-fluid">
+                            {{ m.abstract|safe| slice:"300" }}... <a href="{{ m.get_absolute_url }}" class="badge badge-light">Read more</a>
+                            </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+
+
+
+
+{% include 'footer.html' %}
+</body>
+</html>

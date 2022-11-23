@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    {% include 'head.html' %}
+        <title>Volumes</title>
+        <meta charset="UTF-8">
+        <meta name=”robots” content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+{% block content %}
+{% include 'menu.html' %}
+
+    <div class="col align-self-center p-3" >
+                {% for m in manuscripts %}
+
+                    <div class="container shadow-sm p-3 mb-4 bg-white rounded">
+                                            <div class="row" style="float:left; margin-top:-15px; margin-left:-20px;">
+                                    <lottie-player
+                                            src="https://assets4.lottiefiles.com/packages/lf20_wekndypn.json"
+                                            background="transparent"
+                                            speed="0.4"
+                                            style="width: 50px; height: 50px;"
+                                            autoplay>
+                                    </lottie-player>
+                    </div>
+                        <div class="container pb-1">
+                            <span class="badge badge-pill badge-light float-sm-right " style="">pp. {{ m.citation_firstpage }}-{{ m.citation_lastpage }} in Volume {{ m.citation_volume }}</span>
+                          <a href="{{ m.get_absolute_url }}" class="text-dark" ><h5 class="pl-2">{{ m.citation_title}}</h5></a>
+                        </div>
+                        <div class="container">
+                            {% for author in m.authors.all %}
+                            <a href="{{ m.get_absolute_url }}" class="badge badge-light">{{ author }}</a>
+                                        {% endfor %}
+                        </div>
+                            <br>
+                            <div class="container-fluid">
+                            {{ m.abstract|safe| slice:"300" }}... <a href="{{ m.get_absolute_url }}" class="badge badge-primary">Read more</a>
+                            </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+{% endblock content %}
+{% include 'footer.html' %}
+</body>
+</html>

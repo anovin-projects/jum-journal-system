@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/jumstyle.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <title>Jum - Web Software Solutions</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+{% include 'jum_nav.html' %}
+{% include 'jum-home.html' %}
+{% include 'jum-stack.html' %}
+<section id="pricing">
+
+    <div class="container" align="center">
+    <h1>Hosting solutions, integrations, extensions and pricing</h1>
+
+    <div class="row justify-content-center pt-4 pb-4">
+
+            <div class="col-sm" align="center">
+                <h3>For small publishers</h3>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    Price:<h1>49.99$/month</h1><small>Paid annually. Software delivery time is 1-6 weeks.</small>
+                </li>
+                <li class="list-group-item">
+                Single journal installation
+                </li>
+                <li class="list-group-item">
+                Custom domain
+                </li>
+                <li  class="list-group-item">
+                   Virtual machine: 2vCPU & 1.7GB RAM
+                </li>
+                <li  class="list-group-item">
+                    Security cerificate (SSL)
+                </li>
+                <li  class="list-group-item">
+                    Postgresql database and regular backups
+                </li>
+                <li  class="list-group-item">
+                    3 free charts of your choice and logic
+                </li>
+                <li  class="list-group-item">
+                    Search engine integrations (Google, Bing...)
+                </li>
+                <li class="list-group-item">
+                    Google analytics integration
+                </li>
+                <li class="list-group-item">
+                    Send newsletters via Mailchimp
+                </li>
+                <li  class="list-group-item">
+                    Search engine integrations (Google, Bing...)
+                </li>
+                <li  class="list-group-item">
+                    4 hours of training
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm" align="center">
+            <h3>Custom solutions</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                   <h1>Request a quote</h1>
+                </li>
+                <li class="list-group-item">
+                   Everything in the small publisher plan +
+                </li>
+                <li  class="list-group-item">
+                 Multi-journal system
+                </li>
+        </ul>
+        </div>
+    </div>
+    </div>
+
+</section>
+
+</body>
+</html>

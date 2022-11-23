@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+        {% block content %}
+        {% include 'head.html' %}
+        <meta name="generator" content="Jum Scientific Journal v1.0.1">
+        <title>{{ abstract.citation_title }}</title>
+        <meta name="description" content="{{ abstract.citation_title }}">
+        <meta charset="UTF-8">
+        <meta name=”robots” content="index, follow">
+
+        <!-- Google Scholar Meta Tags -->
+
+        <meta name="citation_title" content="{{ abstract.citation_title }}">
+        {% for author in abstract.authors.all %}<meta name="citation_author" content="{{ author }}">
+        {% endfor %}
+        <meta name="citation_date" content="{{ abstract.citation_date|date:'Y/m/d' }}">
+        <meta name="citation_journal_title" content="Bulletin of the biology students' research society">
+        <meta name="citation_journal_title" content="{{ abstract.citation_issn }}">
+        <meta name="citation_volume" content="{{ abstract.citation_volume }}">
+        <meta name="citation_firstpage" content="{{ abstract.citation_firstpage }}">
+        <meta name="citation_lastpage" content="{{ abstract.citation_lastpage }}">
+        <meta name="citation_pdf_url" content="{{ abstract.document.url }}">
+</head>
+<body>
+{% include 'menu.html' %}
+<br>
+        <div class="container shadow-sm p-3 mb-4 bg-white rounded">
+            <div class="col-md-auto">
+                <div class="pb-3">
+                    <span class="badge badge-pill badge-light float-sm-right  p-1"><strong></strong>UDC: {{ abstract.udc }}</span>
+                    <span class="badge badge-pill badge-light float-sm-right  p-1"><strong></strong>ISSN: {{ abstract.citation_issn }}</span>
+                </div>
+                <h3><strong>{{ abstract.title|safe }}</strong></h3>
+                {% for author in abstract.authors.all %}
+                <button type="button" class="btn btn-sm shadow-sm btn btn-primary mb-1 "
+                        data-container="body"
+                        data-toggle="popover"
+                        data-placement="bottom"
+                        data-content="{{ author.institution }}">
+                        {{ author }}
+                </button>
+                        {% endfor %}
+<br>
+                <div class="pt-3">
+                    <span class="badge badge-pill badge-light"><strong>Reference author e-mail: </strong>{{ abstract.reference_author }}</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="container shadow-sm p-3 mb-4 bg-white rounded">
+            <div class="col-md-auto">
+                <div class="pb-3">
+                    <span class="badge badge-pill badge-light float-sm-right  p-1"><strong></strong>pp. {{ abstract.citation_firstpage }}-{{ abstract.citation_lastpage }} in Volume {{ abstract.citation_volume }}</span>
+                </div>
+
+                    <h5><strong>Abstract.</strong></h5>{{ abstract.abstract|safe }}
+                    <div class="row">
+                        <div class="col">
+                            <p><strong>Keywords: </strong>{{ abstract.keywords }}</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+<div class="container shadow-sm p-2 mb-0 bg-white rounded">
+    <div class="col-md-auto">
+        <div class="float-sm-right">
+            <p><strong>Date published: </strong>{{ abstract.citation_date }}</p>
+        </div>
+
+        <button onclick="window.location.href='{{ abstract.document.url }}';" type="button"
+                         class="btn btn-sm btn btn-outline-success  mb-1">
+                         Download PDF
+        </button>
+
+        <button type="button"
+                        class="btn btn-sm btn btn-outline-dark  mb-1"
+                        data-toggle="popover"
+                        data-placement="bottom"
+                        data-content="
+                        {% for author in abstract.authors.all %}
+                        {{ author.surname }}
+                        {{ author.name|first }}. {% if abstract.authors.all|length != forloop.counter %},{% endif %}{% endfor %}({{ abstract.citation_date|date:'Y' }}) :
+                        {{ abstract.citation_title }} in
+                        Bull. Biol. Stud. Res. Soc. Vol.
+                        {{ abstract.citation_volume }}:
+                        {{ abstract.citation_firstpage }}-{{ abstract.citation_lastpage }}
+">                    Cite this article
+    </button>
+
+    </div>
+</div>
+<br>
+<br>
+{% include 'footer.html' %}
+{% endblock content %}
+<script>
+    $(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
+</body>
+</html>

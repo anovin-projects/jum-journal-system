@@ -1,0 +1,39 @@
+
+body {background-color: #2b5a9f12;
+padding-top:100px;
+}
+container {background-color: #2b5a9f24;
+
+}
+.container {background-color:#FFFFFF;!important}
+
+.fa {
+  padding: 15px;
+  font-size: 50px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.fa:hover {
+  opacity: 0.8;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #17a2b8;
+  color: white;
+}
+.fa-google {
+  background: #28a784;
+  color: white;
+}
+
+.fa-instagram {
+  background: #dc3545;
+  color: white;
+}

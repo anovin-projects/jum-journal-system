@@ -1,0 +1,48 @@
+{% load static %}
+{% load honeypot %}
+
+<footer id="footer">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-sm p-3 m-2 ">
+                <div class="col-sm">
+                    <center>
+                        <a class="badge badge-pill btn-outline-primary" href="{% url 'index' %}">Home</a>
+                        <a class="badge badge-pill btn-outline-primary" href="{% url 'advanced_search' %}">Advanced search</a>
+                        <a class="badge badge-pill btn-outline-primary" href="{% url 'contact' %}">Contact</a>
+                        <a class="badge badge-pill btn-outline-primary" href="{% url 'django.contrib.sitemaps.views.sitemap' %}">Sitemap</a>
+                        <a class="badge badge-pill btn-outline-success" href="http://127.0.0.1:8000/api/">API</a>
+                        <a class="badge badge-pill btn-outline-danger" href="{% url 'report' %}">Report an issue</a>
+                    </center>
+                </div>
+            </div>
+            <div class="col-sm p-3 m-1 " align="center">
+                <div class="col-sm">
+                    <a href="https://www.facebook.com/istrazuvackodrustvo/" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/IDSBiolozi" class="fa fa-twitter"></a>
+                    <a href="mailto:idsbiolozi@gmail.com" class="fa fa-google"></a>
+                    <a href="https://www.instagram.com/biologystudents/" class="fa fa-instagram"></a>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="col-sm">
+                        <small>
+                            Bulletin of the Biology Students' Research Society is licensed under a
+                            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+                            Creative Commons Attribution 4.0 International License
+                            </a>.
+                        </small>
+                </div>
+            </div>
+  </div>
+    </div>
+    <div class="container shadow p-3 mb-4 bg-white">
+        <div class="container">
+            <small>This web application is built by <a href="https://github.com/starscream32">starscream32</a> with:
+            <strong>Django, Postgres, Bootstrap, Chart.js, LottieFiles, Popper.js and Google Cloud Platform.</strong> The application is optimized according to
+                <a href="https://scholar.google.com/intl/en/scholar/inclusion.html">Google Scholar Webmaster Guidelines.</a></small>
+        </div>
+    </div>
+</footer>
+
+

@@ -1,0 +1,31 @@
+<!--- NAVBAR --->
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="#">
+    <img src="{% static 'jum/logo-jum.png' %}" width="65" height="65" alt="" class="m-2">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" align="center">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#about">About</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://jum.mk/tutorials">Tutorials</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Hosting solutions</a>
+        </li>
+    </ul>
+        <img src="{% static 'jum/ss-logo.png' %}" width="15" height="15" alt="" class="m-2">
+      <a href="https://www.shapeshift.mk"><small style="color:white;">Powered by Shapeshift</small></a>
+
+  </div>
+</nav>
+<!--- NAVBAR ENDS --->
