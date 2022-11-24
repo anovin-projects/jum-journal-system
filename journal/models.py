@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from tinymce.models import HTMLField
 
 class Sections(models.Model):
     title = models.CharField(max_length=30)

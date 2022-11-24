@@ -5,115 +5,197 @@
     <meta charset="UTF-8">
     <title>Bulletin of the Biology Students' Research Society</title>
     {% include 'head.html' %}
+    <meta name="description" content="The Bulletin of the Biology Students’ Research Society is a scientific journal that is being
+        published once in a few years. This closes the circle in the process of professional growth
+        of biologists during their undergraduate studies.">
 </head>
 <body>
 {% include 'menu.html' %}
-<div class="container p-5 mb-3 shadow-sm">
+<div class="container p-3 mb-3 mt-3 shadow" id="coverContainer">
     <div class="container p-3">
         <div class="pb-3">
-                </div>
-            <div class="container">
-                    <div class="container d-flex justify-content-around">
-                        <lottie-player
-                            src="https://assets8.lottiefiles.com/packages/lf20_Q895iE.json"
-                            background="transparent"
-                            speed="4"
-                            style="width: 175px; height: 175px;"
-                            autoplay>
-                        </lottie-player>
-                    </div>
-                    <div class="row">
-                        <div class="container p-4 text-center">
-                          <h4 style="padding-bottom:25px;"><strong>Bulletin</strong> of the Biology Students' Research Society</h4>
-                            <a href="{% url 'advanced_search' %}" class="btn btn-primary">Browse the journal</a>
-                        </div>
-                    </div>
+        </div>
+        <div class="container">
+            <div class="container d-flex justify-content-around">
+                <lottie-player
+                        src="https://assets8.lottiefiles.com/packages/lf20_Q895iE.json"
+                        background="transparent"
+                        speed="4"
+                        style="width: 175px; height: 175px;"
+                        autoplay>
+                </lottie-player>
             </div>
+            <div class="row">
+                <div class="container p-4 text-center">
+                    <h4 style="padding-bottom:25px;"><strong>Bulletin</strong> of the Biology Students' Research Society
+                    </h4>
+                    <a href="{% url 'advanced_search' %}" class="btn btn-primary" style="border-radius:10px;"><b>Browse
+                        the journal</b></a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="container p-4 mb-3 shadow-sm" id="aim" style="text-align: justify;">
+<div class="container p-4 mb-3 shadow" id="aim" style="text-align: justify;
+  box-shadow: 1px 5px 5px 5px #ccc;
+    border-radius:10px;">
     <h4> Aim and scope </h4>
 
     <p>The Bulletin of the Biology Students’ Research Society is a scientific journal that is being
-                            published once in a few years. This closes the circle in the process of professional growth
-                            of biologists during their undergraduate studies. Students are educated and get to promote
-                            knowledge (promote biology in this regard), as well as an opportunity to collect biological
-                            material on the field. Finally, they have an opportunity to learn alongside mentors on how
-                            to write and have a place to promote their results. This system overcomes the limits of
-                            formal education and develops more skillful biologists in general. The Society offers a
-                            place for students to experience by learning and practicing, and writing of scientific
-                            articles. Also, it represents a positive example of great cooperation with other parties
-                            (professors, assistants, other organizations, supporters) as well as for strong teamwork
-                            among students themselves.
+        published once in a few years. This closes the circle in the process of professional growth
+        of biologists during their undergraduate studies. Students are educated and get to promote
+        knowledge (promote biology in this regard), as well as an opportunity to collect biological
+        material on the field. Finally, they have an opportunity to learn alongside mentors on how
+        to write and have a place to promote their results. This system overcomes the limits of
+        formal education and develops more skillful biologists in general. The Society offers a
+        place for students to experience by learning and practicing, and writing of scientific
+        articles. Also, it represents a positive example of great cooperation with other parties
+        (professors, assistants, other organizations, supporters) as well as for strong teamwork
+        among students themselves.
     </p>
 </div>
-<div class="container p-5" style="background-color:transparent;">
+<div class="container p-3" style="background-color:transparent;">
     <div class="row">
-                <div class="col p-3" align="center">
-                        <h4>Manuscripts by section</h4>
-                        <canvas id="myChart3" width="300" height="300"></canvas>
-            {% include 'chart_authors.html' %}
+        <div class="col-12 col-lg-4 p-4 bg-light shadow border" style="border-radius:10px;" align="center">
+            <h4>Manuscripts by section</h4>
+            <canvas id="myChart3" width="250" height="250"></canvas>
         </div>
-        <div class="col p-3" align="center">
-                <h4>Authors by degree <small>(totals)</small></h4>
-                <canvas id="myChart" width="300" height="300"></canvas>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-                {% include 'chart_authors.html' %}
+        <div class="col-12 col-lg-4  p-4 bg-light shadow border" style="border-radius:10px;" align="center">
+            <h4>Authors by degree <small>(totals)</small></h4>
+            <canvas id="myChart" width="250" height="250"></canvas>
         </div>
-        <div class="col p-3" align="center">
-                        <h4>Manuscripts by volume</h4>
-            <canvas id="myChart2" width="300" height="300"></canvas>
-            {% include 'chart_authors.html' %}
+        <div class="col-12 col-lg-4  p-4 bg-light shadow border" style="border-radius:10px;" align="center">
+            <h4>Manuscripts by volume</h4>
+            <canvas id="myChart2" width="250" height="250"></canvas>
         </div>
 
     </div>
 </div>
-<div id="core" class="container p-3 mb-3 " style="text-align: justify;">
-    <h4 >Core</h4>
+<div id="core" class="container p-3 mb-3 shadow " style="text-align: justify; border-radius:10px;">
+    <h4>Core</h4>
 
     <p>The Biology Students’ Research Society (BSRS) is a youth research organization established in 1995.
-                              It started as a progressive idea from enthusiastic biology students thriving for more challenges
-                              and grew to be one of the oldest youth organizations in the country today. Besides that, it
-                              represents one among the few youth-research organizations in Macedonia, with continuous work
-                              of more than 25 years. Many generations took part and left mark passing the passion for biology
-                              onto future generations. This makes BSRS self-organizing structure, led only by biology students.
+        It started as a progressive idea from enthusiastic biology students thriving for more challenges
+        and grew to be one of the oldest youth organizations in the country today. Besides that, it
+        represents one among the few youth-research organizations in Macedonia, with continuous work
+        of more than 25 years. Many generations took part and left mark passing the passion for biology
+        onto future generations. This makes BSRS self-organizing structure, led only by biology students.
 
     </p>
     <p>The three core goals of the Society are: <strong>Education, Research and Publication</strong></p>
-                            <p>In order to promote knowledge, the Society educates its members and the public in biology-related topics.
-                            This is accomplished by different activities around the year such as organizing courses, classes, and
-                            events that help students to improve their skills. Some of these events are open to the broader public.
-                            Gaining theoretical knowledge is followed by doing practical work. Regarding this, the Society organizes
-                            activities such as field expeditions and excursions. In this way, young biologists are trained for different
-                            field methodologies, but also have an opportunity to contribute to the knowledge of Macedonia’s biodiversity.
-                            Last but not least, the Society offers a place for students to experience by learning and practicing, writing
-                            of scientific articles. This is possible thanks to the Bulletin of the Biology Students’ Research Society tha
-                            t is being published once in a few years. This closes the circle in the process of professional growth of one
-                            biologist during their undergraduate studies. Students get educated and get to promote knowledge (promote
-                            biology in this regard), as well as an opportunity to collect biological material on the field. Finally,
-                            they have an opportunity to learn alongside mentors on how to write and have a place to promote their results
-                            . This system overcomes the limits of formal education and develops more skillful biologists in general.
-                            Also, represents a positive example for the great cooperation with other parties (professors, assistants,
-                            other organizations, supporters) as well as for strong teamwork among students themselves.
-                                Society’s working structure consists of many sections that are fully or partially functioning
-                                (entomology, algology, floristic, landscape ecology, mycology, ornithology, arachnology,
-                                mammology, macrozoobenthos, and others.). Each section has a different study focus and is
-                                led by a more experienced member (professor, assistant, expert) who has a mentoring role.
-                                Biological materials collected from field activities and are being proceeded, labeled and
-                                sorted at the Institute of Biology, Faculty of Natural Sciences and Mathematics in Skopje.</p>
+    <p>In order to promote knowledge, the Society educates its members and the public in biology-related topics.
+        This is accomplished by different activities around the year such as organizing courses, classes, and
+        events that help students to improve their skills. Some of these events are open to the broader public.
+        Gaining theoretical knowledge is followed by doing practical work. Regarding this, the Society organizes
+        activities such as field expeditions and excursions. In this way, young biologists are trained for different
+        field methodologies, but also have an opportunity to contribute to the knowledge of Macedonia’s biodiversity.
+        Last but not least, the Society offers a place for students to experience by learning and practicing, writing
+        of scientific articles. This is possible thanks to the Bulletin of the Biology Students’ Research Society tha
+        t is being published once in a few years. This closes the circle in the process of professional growth of one
+        biologist during their undergraduate studies. Students get educated and get to promote knowledge (promote
+        biology in this regard), as well as an opportunity to collect biological material on the field. Finally,
+        they have an opportunity to learn alongside mentors on how to write and have a place to promote their results
+        . This system overcomes the limits of formal education and develops more skillful biologists in general.
+        Also, represents a positive example for the great cooperation with other parties (professors, assistants,
+        other organizations, supporters) as well as for strong teamwork among students themselves.
+        Society’s working structure consists of many sections that are fully or partially functioning
+        (entomology, algology, floristic, landscape ecology, mycology, ornithology, arachnology,
+        mammology, macrozoobenthos, and others.). Each section has a different study focus and is
+        led by a more experienced member (professor, assistant, expert) who has a mentoring role.
+        Biological materials collected from field activities and are being proceeded, labeled and
+        sorted at the Institute of Biology, Faculty of Natural Sciences and Mathematics in Skopje.</p>
 </div>
-<div id="volumes" class="container" align="center">
+<div id="volumes" class="container shadow mt-3 mb-3 " style="border-radius: 10px;" align="center">
     <div class="container p-5 mb-1">
         <h3>Volumes</h3>
-    <div class="container p-4" align="center">
-        {% for v in volumes %}
-        <a class="btn btn-primary p-2 m-2" href="{{ v.get_absolute_url}}">Volume {{ v.name }}</a>
-        {% endfor %}
-    </div>
+        <div class="container p-4" align="center">
+            {% for v in volumes %}
+            <a class="btn btn-light  border p-2 m-2 shadow" style="border-radius: 10px;"
+               href="{{ v.get_absolute_url}}">Volume {{ v.name }}</a>
+            {% endfor %}
+        </div>
     </div>
 
 </div>
 {% include 'footer.html' %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"
+        type="text/javascript"></script>
+<script>
+    let ctx1 = document.getElementById('myChart')
+    let degreeCountLabels = JSON.parse('{{degree_counts_labels | safe }}')
+    let degreeCountDataset = JSON.parse('{{degree_counts_dataset | safe }}')
+
+    const myFirstChart = new Chart(ctx1, {
+        type: 'doughnut',
+        data: {
+            labels: degreeCountLabels,
+            datasets: [{
+                label: 'Number of authors by degree.',
+                backgroundColor: [
+                    '#ef0006',
+                    '#f0bd24',
+                    '#4ea825',
+                    '#0984ab',
+
+                ],
+                data: degreeCountDataset
+            }]
+        },
+        options: {
+            responsive: false
+        }
+    });
+</script>
+<script>
+    let ctx2 = document.getElementById('myChart2')
+    let labels = JSON.parse('{{volume_count_labels | safe }}')
+    let dataset = JSON.parse('{{volume_count_dataset | safe }}')
+    console.log(labels)
+    console.log(dataset)
+
+    const mySecondChart = new Chart(ctx2, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Authors by degree.',
+                backgroundColor: [
+                    '#00C1FF',
+                    '#0984AB',
+                    '#05536C',
+                    '#0EDFC6',
+                    '#096C60',
+                ],
+                data: dataset
+            }]
+        },
+        options: {
+            responsive: false
+        }
+    });
+</script>
+<script>
+    let ctx3 = document.getElementById('myChart3')
+    let sectionLabels = JSON.parse('{{ section_count_labels | escapejs }}')
+    let sectionDataset = JSON.parse('{{ section_count_dataset | escapejs }}')
+
+    const myThirdChart = new Chart(ctx3, {
+        type: 'radar',
+        data: {
+            labels: sectionLabels,
+            datasets: [{
+                label: 'Number of manuscripts by section.',
+                backgroundColor: ['#0984ab'],
+                data: sectionDataset
+            }]
+        },
+        options: {
+            responsive: false
+        }
+    });
+</script>
 </body>
 </html>

@@ -31,19 +31,20 @@ admin.AdminSite.site_header = 'Biology Students\' Research Society Administratio
 admin.AdminSite.site_title = 'ИДСБ'
 
 urlpatterns = [
-    path('', views.index, name='jum'),
+    path('', include('journal.urls')),
+    path('', include('pwa.urls')),
     path('secret/', admin.site.urls),
     path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
-    path('demo/', include('journal.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('static', static),
-    path('api/', include('journal.apiurls')),
+    path('api/', include('journal.apiurls'), name='api'),
     path('sitemap.xml', sitemap,
          {'sitemaps': {'manuscripts': GenericSitemap(info_dict, priority=0.6)}},
          name='django.contrib.sitemaps.views.sitemap'),
-    path("schema/", Schema.as_view(), name='models')
+    path('schema/', Schema.as_view())
 
 ]
+
 if settings.DEBUG == True:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

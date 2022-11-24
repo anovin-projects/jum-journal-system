@@ -1,2 +1,5 @@
 .idea/
 venv/
+journal/migrations/
+sci/__pycache__
+journal/__pycache__

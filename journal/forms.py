@@ -10,7 +10,7 @@ class BugForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(BugForm, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            visible.field.widget.attrs['class'] = 'form-control'
+            visible.field.widget.attrs['class'] = 'form-control mb-3 shadow-sm'
 
 
 class ContactForm(ModelForm):
@@ -21,4 +21,4 @@ class ContactForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(ContactForm, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            visible.field.widget.attrs['class'] = 'form-control'
+            visible.field.widget.attrs['class'] = 'form-control mb-3 shadow-sm'

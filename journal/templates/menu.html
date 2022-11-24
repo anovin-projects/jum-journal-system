@@ -1,26 +1,38 @@
 {% load static %}
 {% load honeypot %}
-<div class="container shadow-sm p-3 mb-2 fixed-top" style="border-radius:5%;background-color:#FFFFFF;">
-  <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#FFFFFF;">
-      <a class="navbar-brand" href="https://bulletin.idsbiolozi.com">
-        <img src="{% static 'img/logo.png' %}" width="35" height="35" class="d-inline-block align-top" alt="">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" align="center">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-              <a class="nav-link btn badge-pill" href="{% url 'index' %}">Home</a>
-          </li>
+<style>
+   .nav-link {font-size:14px;}
+
+   .collapsed .navbar-toggler-icon i{color: darkgrey;}
+   .navbar-toggler-icon i{color: black;}
+</style>
+<nav class="navbar navbar-expand-lg navbar-light container d-flex justify-content-between w-100 shadow-sm" style="background-color:#FFFFFF;">
+    <a class="navbar-brand" href="https://bulletin.idsbiolozi.com">
+        <img src="{% static 'img/logo.png' %}" width="35" height="35" class=" ms-2 ms-md-0" alt="">
+    </a>
+    <button class="navbar-toggler align-item-center justify-content-end" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon m-0 w-100 d-flex align-items-center justify-content-center" style="background-image: none;">
+            <i class="bi bi-three-dots m-0 d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;"></i>
+        </span>
+    </button>
+    <div class="collapse navbar-collapse w-100" id="navbarSupportedContent" align="center">
+        <ul class="navbar-nav mr-auto w-100">
+            <li class="nav-item active">
+                <a class="nav-link btn badge-pill" href="{% url 'index' %}">Home</a>
+            </li>
             <a class="nav-link btn badge-pill" href="{% url 'index' %}#aim">Aim and scope</a>
             <a class="nav-link btn badge-pill" href="{% url 'index' %}#core">Core</a>
             <a class="nav-link btn badge-pill" href="{% url 'index' %}#volumes">Volumes</a>
+            <a class="nav-link btn badge-pill text-dark" href="{% url 'advanced_search' %}" >Search</a>
         </ul>
-          <a class="badge badge-pill btn-outline-primary" href="{% url 'contact' %}">Contact</a>
-          <a class="badge badge-pill btn-outline-success" href="http://127.0.0.1:8000/api/">API</a>
-          <a class="badge badge-pill btn-outline-danger" href="{% url 'report' %}">Report an issue</a>
+        <hr>
 
-      </div>
-    </nav>
-</div>
+        <div class="d-flex pt-1 pb-1 mt-2 mb-2 d-flex justify-content-center justify-content-lg-end align-items-center w-100" style="border-radius:20px;">
+            <a class="badge badge-pill btn-outline-primary" href="{% url 'contact' %}">Contact</a>
+            <a class="badge badge-pill btn-outline-success" href="http://127.0.0.1:8000/api/">API</a>
+            <a class="badge badge-pill btn-outline-danger" href="{% url 'report' %}">Report an issue</a>
+        </div>
+        <hr>
+    </div>
+</nav>

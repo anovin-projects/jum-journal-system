@@ -1,0 +1,5 @@
+Django~=3.2.14
+pip~=22.0.4
+setuptools~=58.1.0
+djangorestframework~=3.14.0
+django-honeypot~=1.0.3
