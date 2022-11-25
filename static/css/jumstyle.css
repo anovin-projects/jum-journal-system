@@ -1,0 +1,48 @@
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    color:white;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background: linear-gradient(45deg, #2a363b, #2a363b);
+    position: relative;
+    background-size: 400% 400%;
+    animation: change 10s ease-in-out infinite;
+}
+@keyframes change {
+    0% {
+    background-position: 0 50%;
+    }
+    50% {
+    background-position: 100 50%;
+    }
+    100% {
+    background-position: 0 50%;
+    }
+}
+
+
+nav {
+   background-color: #2a363b;
+}
+button {
+    background-color:#bd3a4c;
+}
+a {
+color: #bd3a4c;
+}
+.list-group-item {
+    background-color:transparent;
+    border-color: #bd3a4c;
+    border-size:0.2px;
+}
+
+
+.fa {
+  padding: 15px;
+  font-size: 50px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
