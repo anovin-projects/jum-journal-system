@@ -1,13 +1,10 @@
 import json
-
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Manuscript, Volume, Author
 from django.db.models import Count
 from .forms import BugForm, ContactForm
-from honeypot.decorators import check_honeypot
 from .filters import ManuscriptFilter
 from django.core.mail import send_mail
-from django.core import serializers
 
 
 def index(request):
@@ -15,7 +12,6 @@ def index(request):
     # render the values in Chart.js.
     degree_counts = Author.objects.order_by('degree').values('degree').annotate(Count('id'))
     degree_counts = list(degree_counts)
-    print(degree_counts)
 
     degree_counts_labels = []
     degree_counts_dataset = []
@@ -26,10 +22,8 @@ def index(request):
 
     degree_counts_labels = json.dumps(degree_counts_labels)
     degree_counts_dataset = json.dumps(degree_counts_dataset)
-    print(degree_counts_labels)
-    print(degree_counts_dataset)
 
-    # These query gives the manuscript totals for each volume.
+    # This query gives the manuscript totals for each volume.
     m_by_volume_count = Manuscript.objects.order_by('citation_volume').values('citation_volume').annotate(Count('id'))
     m_by_volume_count = list(m_by_volume_count)
     volume_count_labels = []
@@ -42,7 +36,7 @@ def index(request):
     volume_count_labels = json.dumps(volume_count_labels)
     volume_count_dataset = json.dumps(volume_count_dataset)
 
-    # These query gives the manuscript totals for each section.
+    # This query gives the manuscript totals for each section.
     section_count = Manuscript.objects.order_by('section__title').values('section__title').annotate(Count('id'))
 
     section_count = list(section_count)
@@ -129,7 +123,6 @@ def volumeview(request, name):
     return render(request, 'volumes.html', context={
         'volumes': show_volume,
         'manuscripts': show_manuscripts,
-
     })
 
 
@@ -143,16 +136,17 @@ def report(request):
         if form.is_valid():
             form.save()
             subject = 'You have a new bug report'
-            from_email = form.cleaned_data['email']
+            to_email = form.cleaned_data['email']
             content = form.cleaned_data['name'] + '\n' + form.cleaned_data['email'] + '\n' + form.cleaned_data[
                 'description']
             send_mail(
                 subject,
                 content,
-                from_email,
-                ['anovski3@gmail.com', 'dev.jum.mk'],
+                'anovski3@gmail.com',
+                ['anovski3@gmail.com', to_email],
                 fail_silently=False,
             )
+
             return redirect('thanks')
     else:
         form = BugForm()
@@ -167,16 +161,20 @@ def contact(request):
         if contact_form.is_valid():
             contact_form.save()
             subject = 'You have a new bug report'
-            from_email = contact_form.cleaned_data['email']
+            to_email = contact_form.cleaned_data['email']
             content = contact_form.cleaned_data['name'] + '\n' + contact_form.cleaned_data['email'] + '\n' + \
                       contact_form.cleaned_data['content']
-            send_mail(
-                subject,
-                content,
-                from_email,
-                ['anovski3@gmail.com', 'dev.jum.mk'],
-                fail_silently=False,
-            )
+            print(content)
+            try:
+                send_mail(
+                    subject,
+                    content,
+                    'anovski3@gmail.com',
+                    ['anovski3@gmail.com', to_email],
+                    fail_silently=False,
+                )
+            except:
+                print('mail error')
             return redirect('thanks')
         else:
             contact_form = ContactForm()

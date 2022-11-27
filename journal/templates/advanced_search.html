@@ -5,16 +5,40 @@
     <title>Advanced Search</title>
     <meta name="description" content="Advanced search. Bulletin of the biology students' research society.">
     {% include 'head.html' %}
+
+    <style>
+        @media only screen and (max-width: 767px) {
+            .abstract {
+                display: none;
+            }
+
+            h5 {
+                font-size: 16px;
+            }
+
+            lottie-player {
+                display: none;
+            }
+
+
+        }
+
+        .pp {
+            float: right;
+        }
+
+    </style>
 </head>
 <body>
 {% include 'menu.html' %}
 <div class="col-12 " style="border-radius: 10px;">
     <div class="w-100 mb-3 mt-3 bg-light pb-4 pt-4 shadow-sm container" style="border-radius: 10px;">
-            <h4 class="m-0" align="center">Advanced Search</h4>
+        <h4 class="m-0" align="center">Search</h4>
 
     </div>
     <form class="form-inline " method="get" style="border-radius: 10px;">
-        <div class="container p-3 shadow-sm d-flex justify-content-center align-items-center flex-column flex-lg-row shadow-sm" style="border-radius: 10px;">
+        <div class="container p-3 shadow-sm d-flex justify-content-center align-items-center flex-column flex-lg-row shadow-sm"
+             style="border-radius: 10px;">
             {{ filter.form.citation_title }}
             {{ filter.form.abstract }}
             {{ filter.form.keywords }}
@@ -28,10 +52,13 @@
         </div>
     </form>
 </div>
-<div class="col align-self-center p-3">
+
+
+<div class="col align-self-center p-2 ">
     {% for m in filter.qs %}
-    <div class="container shadow-sm p-3 mb-4 bg-white rounded">
-        <div class="row" style="float:left; margin-top:-25px; margin-left:-25px;">
+
+    <div class="container shadow  mb-4 p-0 bg-white " style="border-radius: 10px;">
+        <div class="d-flex align-items-center justify-content-end justify-content-md-between pt-3 pb-3 pt-lg-0 pb-lg-0">
             <lottie-player
                     src="https://assets4.lottiefiles.com/packages/lf20_wekndypn.json"
                     background="transparent"
@@ -39,27 +66,41 @@
                     style="width: 50px; height: 50px;"
                     autoplay>
             </lottie-player>
+            <div class="d-flex mx-2">
+                <div class="badge badge-pill badge-light pp shadow-sm mx-1">{{m.section}}
+                </div>
+                <div class="badge badge-pill badge-light pp shadow-sm mx-2">pp.
+                    {{ m.citation_firstpage }}-{{m.citation_lastpage }}
+                    in Volume {{ m.citation_volume }}
+                </div>
+            </div>
+
+
         </div>
-        <div class="container">
-            <span class="badge badge-pill badge-light float-sm-right  p-1">pp. {{ m.citation_firstpage }}-{{ m.citation_lastpage }} in {{ m.citation_volume }}</span>
-            <a href="{{ m.get_absolute_url }}" class="text-dark"><h5>{{ m.citation_title }}</h5></a>
+
+
+        <div class="container p-0">
+            <a href="{{ m.get_absolute_url }}" class="text-dark">
+                <h5 class="pl-2 d-flex align-items-start justify-content-start px-3">
+
+                    {{ m.citation_title}}
+                </h5>
+            </a>
         </div>
+
         <div class="container">
             {% for author in m.authors.all %}
             <a href="{{ m.get_absolute_url }}" class="badge badge-light">{{ author }}</a>
-
             {% endfor %}
         </div>
         <br>
-        <div class="container-fluid">
-            {{ m.abstract|safe| slice:"300" }}... <a href="{{ m.get_absolute_url }}" class="badge badge-light">Read
+        <div class="container-fluid abstract pb-2">
+            {{ m.abstract|safe| slice:"300" }}... <a href="{{ m.get_absolute_url }}" class="badge badge-primary">Read
             more</a>
         </div>
     </div>
     {% endfor %}
 </div>
-
-
 {% include 'footer.html' %}
 </body>
 </html>

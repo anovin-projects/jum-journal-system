@@ -3,44 +3,83 @@
 <html lang="en">
 <head>
     {% include 'head.html' %}
-        <title>Volumes</title>
-        <meta charset="UTF-8">
-        <meta name=”robots” content="index, follow">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volumes</title>
+    <meta charset="UTF-8">
+    <meta name=”robots” content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @media only screen and (max-width: 767px) {
+            .abstract {
+                display: none;
+            }
+
+            h5 {
+                font-size: 16px;
+            }
+
+            lottie-player {
+                display: none;
+            }
+
+
+        }
+
+        .pp {
+            float: right;
+        }
+
+    </style>
+
 </head>
 <body>
 {% block content %}
 {% include 'menu.html' %}
 
-    <div class="col align-self-center p-3" >
-                {% for m in manuscripts %}
+<div class="col align-self-center p-2 ">
+    {% for m in manuscripts %}
 
-                    <div class="container shadow-sm p-3 mb-4 bg-white rounded">
-                                            <div class="row" style="float:left; margin-top:-15px; margin-left:-20px;">
-                                    <lottie-player
-                                            src="https://assets4.lottiefiles.com/packages/lf20_wekndypn.json"
-                                            background="transparent"
-                                            speed="0.4"
-                                            style="width: 50px; height: 50px;"
-                                            autoplay>
-                                    </lottie-player>
-                    </div>
-                        <div class="container pb-1">
-                            <span class="badge badge-pill badge-light float-sm-right " style="">pp. {{ m.citation_firstpage }}-{{ m.citation_lastpage }} in Volume {{ m.citation_volume }}</span>
-                          <a href="{{ m.get_absolute_url }}" class="text-dark" ><h5 class="pl-2">{{ m.citation_title}}</h5></a>
-                        </div>
-                        <div class="container">
-                            {% for author in m.authors.all %}
-                            <a href="{{ m.get_absolute_url }}" class="badge badge-light">{{ author }}</a>
-                                        {% endfor %}
-                        </div>
-                            <br>
-                            <div class="container-fluid">
-                            {{ m.abstract|safe| slice:"300" }}... <a href="{{ m.get_absolute_url }}" class="badge badge-primary">Read more</a>
-                            </div>
-                    </div>
-                {% endfor %}
+    <div class="container shadow  mb-4 p-0 bg-white " style="border-radius: 10px;">
+        <div class="d-flex align-items-center justify-content-end justify-content-md-between pt-3 pb-3 pt-lg-0 pb-lg-0">
+            <lottie-player
+                    src="https://assets4.lottiefiles.com/packages/lf20_wekndypn.json"
+                    background="transparent"
+                    speed="0.4"
+                    style="width: 50px; height: 50px;"
+                    autoplay>
+            </lottie-player>
+            <div class="badge badge-pill badge-light pp shadow-sm mx-1">{{m.section}}
             </div>
+            <div class="badge badge-pill badge-light pp shadow-sm mx-2">pp.
+                {{ m.citation_firstpage }}-{{m.citation_lastpage }}
+                in Volume {{ m.citation_volume }}
+            </div>
+
+        </div>
+
+
+        <div class="container p-0">
+            <a href="{{ m.get_absolute_url }}" class="text-dark">
+                <h5 class="pl-2 d-flex align-items-start justify-content-start px-3">
+
+                    {{ m.citation_title}}
+                </h5>
+            </a>
+        </div>
+
+        <div class="container">
+            {% for author in m.authors.all %}
+            <a href="{{ m.get_absolute_url }}" class="badge badge-light">{{ author }}</a>
+            {% endfor %}
+        </div>
+        <br>
+        <div class="container-fluid abstract pb-2">
+            {{ m.abstract|safe| slice:"300" }}... <a href="{{ m.get_absolute_url }}" class="badge badge-primary">Read
+            more</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock content %}
 {% include 'footer.html' %}

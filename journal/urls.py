@@ -13,12 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.conf.urls.static import static
 from django.conf import settings
 from .views import volumeview
-
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -28,7 +27,8 @@ urlpatterns = [
     path('thanks/', views.thanks, name='thanks'),
     path('report/', views.report, name='report'),
     path('contact/', views.contact, name='contact'),
-    path('advanced-search/', views.advancedsearch, name='advanced_search')
+    path('advanced-search/', views.advancedsearch, name='advanced_search'),
+    path('api/', include('journal.apiurls'))
 ]
 if settings.DEBUG is True:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

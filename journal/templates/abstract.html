@@ -29,9 +29,9 @@
 <br>
 <div class="container shadow-sm p-3 mb-4 bg-white" style="border-radius: 10px;">
     <div class="col-md-auto p-0 p-lg-2">
-        <div class="mb-3" style="height: 30px; font-size:13px;">
-            <span class="badge badge-pill badge-light float-sm-right   shadow-sm px-3 border py-2 "><strong></strong>UDC: 31231{{ abstract.udc }}</span>
-            <span class="badge badge-pill badge-light float-sm-right   shadow-sm px-3 border py-2 "><strong></strong>ISSN: 123131231231231{{ abstract.citation_issn }}</span>
+        <div class="mb-3 d-flex justify-content-end" style="height: 20px; font-size:13px;">
+            <span class="badge badge-pill badge-light float-sm-right mx-1 shadow-sm px-3 border py-1 "><strong></strong>UDC: 31231{{ abstract.udc }}</span>
+            <span class="badge badge-pill badge-light float-sm-right mx-1 shadow-sm px-3 border py-1 "><strong></strong>ISSN: 123131231231231{{ abstract.citation_issn }}</span>
         </div>
         <h5><strong>{{ abstract.title|safe }}</strong></h5>
         {% for author in abstract.authors.all %}
