@@ -11,7 +11,6 @@ class ManuscriptSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'citation_language',
-            'citation_journal_title',
             'udc',
             'abstract',
             'citation_issn',
