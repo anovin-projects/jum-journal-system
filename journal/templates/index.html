@@ -57,17 +57,29 @@
 </div>
 <div class="container p-3" style="background-color:transparent;">
     <div class="row">
-        <div class="col-12 col-lg-4 p-4 bg-light shadow border" style="border-radius:10px;" align="center">
-            <h4>Manuscripts by section</h4>
-            <canvas id="myChart3" width="250" height="250"></canvas>
+        <div class="col-12 col-lg-4">
+            <div class="bg-light shadow border d-flex justify-content-center align-items-center flex-column"
+                 style="border-radius:10px; padding: 20px; margin:10px;">
+                <h6>Total manuscripts by section</h6>
+                <canvas id="myChart3" width="200" height="200" class="mb-3 "></canvas>
+            </div>
+
         </div>
-        <div class="col-12 col-lg-4  p-4 bg-light shadow border" style="border-radius:10px;" align="center">
-            <h4>Authors by degree <small>(totals)</small></h4>
-            <canvas id="myChart" width="250" height="250"></canvas>
+        <div class="col-12 col-lg-4">
+            <div class="bg-light shadow border d-flex justify-content-center align-items-center flex-column"
+                 style="border-radius:10px; padding: 20px; margin:10px;">
+                <h6>Total authors by degrees</h6>
+                <canvas id="myChart" width="200" height="200" class="mb-3 "></canvas>
+            </div>
+
         </div>
-        <div class="col-12 col-lg-4  p-4 bg-light shadow border" style="border-radius:10px;" align="center">
-            <h4>Manuscripts by volume</h4>
-            <canvas id="myChart2" width="250" height="250"></canvas>
+        <div class="col-12 col-lg-4">
+            <div class="bg-light shadow border d-flex justify-content-center align-items-center flex-column"
+                 style="border-radius:10px; padding: 20px; margin:10px;">
+                <h6>Section totals (manuscripts)</h6>
+                <canvas id="myChart2" width="200" height="200" class="mb-3 "></canvas>
+            </div>
+
         </div>
 
     </div>
@@ -133,7 +145,7 @@
         data: {
             labels: degreeCountLabels,
             datasets: [{
-                label: 'Number of authors by degree.',
+                label: 'Number of authors by degrees.',
                 backgroundColor: [
                     '#ef0006',
                     '#f0bd24',
@@ -161,7 +173,7 @@
         data: {
             labels: labels,
             datasets: [{
-                label: 'Authors by degree.',
+                label: 'Manuscripts by volumes',
                 backgroundColor: [
                     '#00C1FF',
                     '#0984AB',
