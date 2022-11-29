@@ -54,7 +54,7 @@ def index(request):
     manuscript_filter = ManuscriptFilter(request.GET, queryset=manuscript_list)
 
     # Query for all volumes
-    volumes = Manuscript.objects.all()
+    volumes = Manuscript.objects.all().order_by('date')
     return render(
         request,
         template_name='index.html',
