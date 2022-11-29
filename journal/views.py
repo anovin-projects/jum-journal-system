@@ -54,7 +54,7 @@ def index(request):
     manuscript_filter = ManuscriptFilter(request.GET, queryset=manuscript_list)
 
     # Query for all volumes
-    volumes = Manuscript.objects.all().order_by('date')
+    mss = Manuscript.objects.all()
     return render(
         request,
         template_name='index.html',
@@ -65,8 +65,8 @@ def index(request):
             'volume_count_dataset': volume_count_dataset,
             'degree_counts_labels': degree_counts_labels,
             'degree_counts_dataset': degree_counts_dataset,
-            "manuscripts": volumes,
-            "volumes": Volume.objects.all,
+            "manuscripts": mss,
+            "volumes": Volume.objects.all().order_by('date'),
             'filter': manuscript_filter,
         }
     )
