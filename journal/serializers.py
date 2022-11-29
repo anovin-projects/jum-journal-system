@@ -27,17 +27,17 @@ class ManuscriptSerializer(serializers.ModelSerializer):
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
-        fields = ['id',
+        fields = [
                   'name',
                   'surname',
-                  'institution'
+                  'institution',
                   ]
 
 
 class VolumeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Volume
-        fields = ['id',
+        fields = [
                   'citation_language',
                   'citation_journal_title',
                   'udc',
@@ -52,5 +52,5 @@ class VolumeSerializer(serializers.ModelSerializer):
 class SectionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sections
-        fields = ['id', 'title']
+        fields = ['title']
 4
