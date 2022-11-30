@@ -33,7 +33,7 @@
 
         .btn-light:hover {
             color: #212529;
-            background-color: #cfffdc;
+            background-color: #baf6ff;
             border-color: #dae0e5;
         }
 
@@ -51,7 +51,7 @@
     </div>
     <div class="container d-flex justify-content-around p-0">
         <lottie-player
-                src="https://assets4.lottiefiles.com/packages/lf20_ybiszbil.json"
+                src="{% static 'lottie/home.json' %}"
                 background="transparent"
                 speed="1"
                 style="width: 300px; height: 300px;" loop
@@ -151,7 +151,7 @@
     <h2 class="aim-title mt-1">Volumes</h2>
     <div class="d-flex flex-wrap align-items-center justify-content-center p-2" align="center">
         {% for v in volumes %}
-        <a class="btn btn-light  border p-2 m-2 shadow" style="border-radius: 10px; background: #cfffdc;"
+        <a class="btn btn-light  border p-2 m-2 shadow" style="border-radius: 4px;"
            href="{{ v.get_absolute_url}}">Volume {{ v.name }}</a>
         {% endfor %}
     </div>
@@ -226,7 +226,7 @@
         data: {
             labels: sectionLabels,
             datasets: [{
-                label: 'Number of manuscripts by section.',
+                label: 'Total manuscripts per section.',
                 backgroundColor: ['#0984ab'],
                 data: sectionDataset
             }]

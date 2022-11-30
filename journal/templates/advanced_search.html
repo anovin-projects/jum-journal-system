@@ -43,7 +43,7 @@
             {{ filter.form.section }}
 
             <button class="btn btn btn-light mt-3 mb-3 border shadow-sm w-100 "
-                    style=" border-radius: 6px; color: black; background: #cfffdc;
+                    style=" border-radius: 6px; color: black;
     font-weight: 300;" type="submit">Search
             </button>
         </div>
@@ -56,9 +56,9 @@
     <div class="container shadow-sm  mb-4 p-0 bg-white " style="border-radius: 10px;">
         <div class="d-flex align-items-center p-3 justify-content-between justify-content-md-between px-3 mb-0">
 
-            <div class="badge border badge-light pp shadow-sm px-2" style="background: #cfffdc; font-weight: 400;">{{m.section}}
+            <div class="badge border badge-light pp shadow-sm px-2 text-light py-1" style="background: #001D2B; font-weight: 200;">{{m.section}}
             </div>
-            <div class="badge border badge-light pp shadow-sm px-2" style="font-weight: 400;">pp.
+            <div class="badge border badge-light pp shadow-sm px-2" style="font-weight: 200;">pp.
                 {{ m.citation_firstpage }}-{{m.citation_lastpage }}
                 in Volume {{ m.citation_volume }}
             </div>
@@ -81,7 +81,7 @@
         </div>
         <br>
         <div class="container-fluid abstract pb-2">
-            {{ m.abstract|safe| slice:"300" }}... <a href="{{ m.get_absolute_url }}" class="badge badge-primary">Read
+            {{ m.abstract|safe| slice:"300" }}... <a href="{{ m.get_absolute_url }}" class="badge badge-light border-bottom">Read
             more</a>
         </div>
     </div>

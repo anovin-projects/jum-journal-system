@@ -1,40 +1,43 @@
 {% load static %}
 {% load honeypot %}
+<!--
+#001D2B
 
+#baf6ff
+-->
 <footer id="footer" style="border-radius:10px;">
     <div class="container shadow-sm" style="border-radius:10px;">
         <div class="row align-items-center">
             <div class="col-sm p-3 m-2 ">
-                <div class="col-sm">
-                    <center>
-                        <a class="badge badge-pill btn-outline-primary" href="{% url 'index' %}">Home</a>
-                        <a class="badge badge-pill btn-outline-primary" href="{% url 'advanced_search' %}">Advanced
-                            search</a>
-                        <a class="badge badge-pill btn-outline-primary" href="{% url 'contact' %}">Contact</a>
+                <div class="col-sm d-flex flex-wrap align-items-center justify-content-center p-0">
+                    <a class="badge  border btn-light m-2 p-2" href="{% url 'index' %}">Home</a>
+                    <a class="badge  border btn-light m-2 p-2" href="{% url 'advanced_search' %}">
+                        Search</a>
+                    <a class="badge border  btn-light m-2 p-2 " href="{% url 'contact' %}">Contact</a>
 
-                        <a class="badge badge-pill btn-outline-success mx-1" href="https://journal.anovin.mk/api/"
-                           style="text-decoration: none;">API</a>
-                        <a class="badge badge-pill btn-outline-danger " href="{% url 'report' %}"
-                           style="text-decoration: none;">Report
-                            an issue</a>
-                    </center>
+                    <a class="badge border  btn-outline-success m-2 p-2" href="https://journal.anovin.mk/api/"
+                       style="text-decoration: none;">API</a>
+                    <a class="badge border btn-outline-danger m-2 p-2 " href="{% url 'report' %}"
+                       style="text-decoration: none;">Report
+                        an issue</a>
                 </div>
             </div>
-            <div class="col-sm p-3 m-1 " align="center">
-                <div class="col-sm">
+            <div class="col-sm p-3 m-1  d-flex justify-content-center align-items-center" style="font-size:30px;">
 
-                    <a href="https://www.facebook.com/istrazuvackodrustvo/" class="fa fa-facebook"
-                       style="border-radius:10px;"></a>
-                    <a href="https://twitter.com/IDSBiolozi" class="fa fa-twitter" style="border-radius:10px;"></a>
-                    <a href="mailto:idsbiolozi@gmail.com" class="fa fa-google" style="border-radius:10px;"></a>
-                    <a href="https://www.instagram.com/biologystudents/" class="fa fa-instagram"
-                       style="border-radius:10px;"></a>
-                </div>
+                <a href="https://www.facebook.com/istrazuvackodrustvo/" class="bi bi-facebook"
+                   style="border-radius:4px; color:#001f3d;  margin:12px;">
+                </a>
+                <a href="https://twitter.com/IDSBiolozi" class="bi bi-twitter"
+                   style="border-radius:4px;color:#001f3d; margin:12px;"></a>
+                <a href="mailto:idsbiolozi@gmail.com" class="bi bi-envelope-fill"
+                   style="border-radius:4px;color:#001f3d; margin:12px;"></a>
+                <a href="https://www.instagram.com/biologystudents/" class="bi bi-instagram"
+                   style="border-radius:4px;color:#001f3d; margin:12px;"></a>
             </div>
             <div class="col-sm p-4">
                 <small>
                     Bulletin of the Biology Students' Research Society is licensed under a
-                    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+                    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="color: #034686;">
                         Creative Commons Attribution 4.0 International License
                     </a>.
                 </small>
@@ -43,10 +46,10 @@
     </div>
     <div class="container shadow p-3 mb-4   mt-4 mb-4" style="border-radius: 10px;">
         <div class="container " style="border-radius: 10px;">
-            <small>This web application is built by <a href="https://github.com/starscream32">starscream32</a> with:
+            <small>This web application is built by <a href="https://github.com/starscream32" style="color: #034686;">starscream32</a> with:
                 <strong>Django, Postgres, Bootstrap, Chart.js, LottieFiles, Popper.js and Google Cloud
                     Platform.</strong> The application is optimized according to
-                <a href="https://scholar.google.com/intl/en/scholar/inclusion.html">Google Scholar Webmaster
+                <a href="https://scholar.google.com/intl/en/scholar/inclusion.html" style="color: #034686;">Google Scholar Webmaster
                     Guidelines.</a></small>
         </div>
     </div>
