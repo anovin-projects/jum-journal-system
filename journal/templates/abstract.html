@@ -23,6 +23,15 @@
     <meta name="citation_firstpage" content="{{ abstract.citation_firstpage }}">
     <meta name="citation_lastpage" content="{{ abstract.citation_lastpage }}">
     <meta name="citation_pdf_url" content="{{ abstract.document.url }}">
+
+
+    <style>
+        .contact-author{}
+        @media only screen and (max-width: 767px) {
+            .contact-author{width: 100%;}
+        }
+
+    </style>
 </head>
 <body style="padding: 0 10px;">
 {% include 'menu.html' %}
@@ -30,12 +39,12 @@
 <div class="container shadow-sm p-3 mb-4 bg-white" style="border-radius: 10px;">
     <div class="col-md-auto p-0 p-lg-2">
         <div class="mb-3 d-flex justify-content-end" style="height: 20px; font-size:13px;">
-            <span class="badge badge-pill badge-light float-sm-right mx-1 shadow-sm px-3 border py-1 "><strong></strong>UDC: 31231{{ abstract.udc }}</span>
-            <span class="badge badge-pill badge-light float-sm-right mx-1 shadow-sm px-3 border py-1 "><strong></strong>ISSN: 123131231231231{{ abstract.citation_issn }}</span>
+            <span class="badge badge-light float-sm-right mx-1 shadow-sm px-2 border py-1 " style="font-weight: 300;">UDC: 31231{{ abstract.udc }}</span>
+            <span class="badge badge-light float-sm-right mx-1 shadow-sm px-2 border py-1 " style="font-weight: 300;">ISSN: 123131231231231{{ abstract.citation_issn }}</span>
         </div>
-        <h5><strong>{{ abstract.title|safe }}</strong></h5>
+        <h6><strong>{{ abstract.title|safe }}</strong></h6>
         {% for author in abstract.authors.all %}
-        <button type="button" class="btn btn-sm shadow btn btn-light mb-1 mt-2 border" style="border-radius: 10px;"
+        <button type="button" class="btn btn-sm badge  shadow btn btn-light mb-1 mt-2 border" style="font-weight: 300;"
                 data-container="body"
                 data-toggle="popover"
                 data-placement="bottom"
@@ -44,10 +53,10 @@
         </button>
         {% endfor %}
         <div class="mt-3  d-flex justify-content-end align-items-center">
-            <p class="badge badge-pill badge-primary shadow-sm px-3 border py-2  m-0" >
-                Contact:
-                <a href="#" style="color:white;">
-                    {{ abstract.reference_author }}
+            <p class="badge  badge-primary shadow-sm px-3 border py-2  m-0 contact-author"  style="background: #0d471d;">
+                <a href="mailto:{{ abstract.reference_author }}" style="color:white;">
+                    Contact author:
+                    <i class="bi bi-envelope-fill"></i> {{ abstract.reference_author }}
                 </a>
             </p>
         </div>
@@ -58,7 +67,7 @@
     <div class="col-md-auto p-0">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="m-0"><strong>Abstract.</strong></h5>
-            <div class="badge badge-pill badge-light float-sm-right shadow-sm px-3 border py-2" style="font-size:11px;">
+            <div class="badge  badge-light float-sm-right shadow-sm px-2 border py-2" style="font-size:11px; font-weight: 300;">
                 pp. {{ abstract.citation_firstpage }}-{{ abstract.citation_lastpage }} in Volume {{abstract.citation_volume}}
             </div>
 
@@ -85,12 +94,12 @@
 
         <div class="d-flex flex-column d-sm-flex d-lg-block">
             <button onclick="window.location.href='{{ abstract.document.url }}';" type="button"
-                    class="btn btn-sm btn btn-outline-primary  mb-1 mb-lg-0" style="border-radius: 10px;">
+                    class="btn btn-sm btn btn-light border  mb-2 mb-lg-0" style="border-radius: 4px;">
                 Download <b>PDF</b>
             </button>
 
             <button type="button"
-                    class="btn btn-sm btn btn-outline-dark  mb-1 mb-lg-0"
+                    class="btn btn-sm btn btn-light border  mb-lg-0 text-light"
                     data-toggle="popover"
                     data-placement="bottom"
                     data-content="
@@ -101,7 +110,7 @@
                         Bull. Biol. Stud. Res. Soc. Vol.
                         {{ abstract.citation_volume }}:
                         {{ abstract.citation_firstpage }}-{{ abstract.citation_lastpage }}"
-                    style="border-radius: 10px;"><b>Cite this article</b>
+                    style="border-radius: 4px; background: #0d471d;">Cite this article
 
             </button>
         </div>

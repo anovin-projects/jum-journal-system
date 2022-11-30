@@ -31,11 +31,8 @@
 </head>
 <body style="padding: 0 10px;">
 {% include 'menu.html' %}
-<div class="col-12 " style="border-radius: 10px;">
-    <div class="w-100 mb-3 mt-3 bg-light pb-4 pt-4 shadow-sm container" style="border-radius: 10px;">
-        <h4 class="m-0" align="center">Search</h4>
+<div class="col-12 p-0 mt-3 mb-3" style="border-radius: 10px;">
 
-    </div>
     <form class="form-inline " method="get" style="border-radius: 10px;">
         <div class="container p-3 shadow-sm d-flex justify-content-center align-items-center flex-column flex-lg-row shadow-sm"
              style="border-radius: 10px;">
@@ -45,52 +42,41 @@
             {{ filter.form.citation_volume }}
             {{ filter.form.section }}
 
-            <button class="btn btn btn-primary mt-3 mb-3 border shadow w-100 text-light "
-                    style=" border-radius: 10px;
-    font-weight: 600;" type="submit">Search
+            <button class="btn btn btn-light mt-3 mb-3 border shadow-sm w-100 "
+                    style=" border-radius: 6px; color: black; background: #cfffdc;
+    font-weight: 300;" type="submit">Search
             </button>
         </div>
     </form>
 </div>
 
-
-<div class="col align-self-center p-2 ">
+<div class="col align-self-center  p-0 ">
     {% for m in filter.qs %}
 
-    <div class="container shadow  mb-4 p-0 bg-white " style="border-radius: 10px;">
-        <div class="d-flex align-items-center justify-content-end justify-content-md-between pt-3 pb-3 pt-lg-0 pb-lg-0">
-            <lottie-player
-                    src="https://assets4.lottiefiles.com/packages/lf20_wekndypn.json"
-                    background="transparent"
-                    speed="0.4"
-                    style="width: 50px; height: 50px;"
-                    autoplay>
-            </lottie-player>
-            <div class="d-flex mx-2">
-                <div class="badge badge-pill badge-light pp shadow-sm mx-1">{{m.section}}
-                </div>
-                <div class="badge badge-pill badge-light pp shadow-sm mx-2">pp.
-                    {{ m.citation_firstpage }}-{{m.citation_lastpage }}
-                    in Volume {{ m.citation_volume }}
-                </div>
-            </div>
+    <div class="container shadow-sm  mb-4 p-0 bg-white " style="border-radius: 10px;">
+        <div class="d-flex align-items-center p-3 justify-content-between justify-content-md-between px-3 mb-0">
 
+            <div class="badge border badge-light pp shadow-sm px-2" style="background: #cfffdc; font-weight: 400;">{{m.section}}
+            </div>
+            <div class="badge border badge-light pp shadow-sm px-2" style="font-weight: 400;">pp.
+                {{ m.citation_firstpage }}-{{m.citation_lastpage }}
+                in Volume {{ m.citation_volume }}
+            </div>
 
         </div>
 
 
-        <div class="container p-0">
+        <div class="container p-0 ">
             <a href="{{ m.get_absolute_url }}" class="text-dark">
-                <h5 class="pl-2 d-flex align-items-start justify-content-start px-3">
-
+                <h5 class="d-flex align-items-start justify-content-start px-3 mb-3 mt-1">
                     {{ m.citation_title}}
                 </h5>
             </a>
         </div>
 
-        <div class="container">
+        <div class="container" style="margin-bottom: 0; ">
             {% for author in m.authors.all %}
-            <a href="{{ m.get_absolute_url }}" class="badge badge-light">{{ author }}</a>
+            <a href="{{ m.get_absolute_url }}" class="badge badge-light border" style="font-weight: 300;">{{ author }}</a>
             {% endfor %}
         </div>
         <br>

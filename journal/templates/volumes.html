@@ -36,21 +36,15 @@
 {% block content %}
 {% include 'menu.html' %}
 
-<div class="col align-self-center p-2 ">
+<div class="col align-self-center  p-0 pt-3 ">
     {% for m in manuscripts %}
 
-    <div class="container shadow  mb-4 p-0 bg-white " style="border-radius: 10px;">
-        <div class="d-flex align-items-center justify-content-end justify-content-md-between pt-3 pb-3 pt-lg-0 pb-lg-0">
-            <lottie-player
-                    src="https://assets4.lottiefiles.com/packages/lf20_wekndypn.json"
-                    background="transparent"
-                    speed="0.4"
-                    style="width: 50px; height: 50px;"
-                    autoplay>
-            </lottie-player>
-            <div class="badge badge-pill badge-light pp shadow-sm mx-1">{{m.section}}
+    <div class="container shadow-sm  mb-4 p-0 bg-white " style="border-radius: 10px;">
+        <div class="d-flex align-items-center p-3 justify-content-between justify-content-md-between px-3 mb-0">
+
+            <div class="badge border badge-light pp shadow-sm px-2" style="background: #cfffdc;">{{m.section}}
             </div>
-            <div class="badge badge-pill badge-light pp shadow-sm mx-2">pp.
+            <div class="badge border badge-light pp shadow-sm px-2">pp.
                 {{ m.citation_firstpage }}-{{m.citation_lastpage }}
                 in Volume {{ m.citation_volume }}
             </div>
@@ -58,18 +52,17 @@
         </div>
 
 
-        <div class="container p-0">
+        <div class="container p-0 ">
             <a href="{{ m.get_absolute_url }}" class="text-dark">
-                <h5 class="pl-2 d-flex align-items-start justify-content-start px-3">
-
+                <h5 class="d-flex align-items-start justify-content-start px-3 mb-3 mt-1">
                     {{ m.citation_title}}
                 </h5>
             </a>
         </div>
 
-        <div class="container">
+        <div class="container" style="margin-bottom: 0;">
             {% for author in m.authors.all %}
-            <a href="{{ m.get_absolute_url }}" class="badge badge-light">{{ author }}</a>
+            <a href="{{ m.get_absolute_url }}" class="badge badge-light border">{{ author }}</a>
             {% endfor %}
         </div>
         <br>
