@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'head.html' %}
+</head>
+<body>
+{% include 'menu.html' %}
+<div class="container p-4 mt-3 mb-5 shadow-sm" style="border-radius: 10px;">
+
+    <form method="post" enctype="multipart/form-data" id="myForm" onsubmit="return validateForm()">
+        {% csrf_token %}
+        <div class="form-group mb-4">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control mb-3 shadow-sm" placeholder="Enter email"/>
+        </div>
+        <div class="form-group mb-4">
+            <label>Phone</label>
+            <input type="text" name="phone" class="form-control mb-3 shadow-sm" placeholder="Enter phone"/>
+        </div>
+        <div class="form-group mb-4">
+            <label>Main Author Full Name</label>
+            <input type="text" name="main_author" class="form-control mb-3 shadow-sm" placeholder="Enter main author"/>
+        </div>
+        <div class="form-group mb-4">
+            <label>Author Full Address</label>
+            <input type="text" name="author_full_address" class="form-control mb-3 shadow-sm"
+                   placeholder="Enter author full address"/>
+        </div>
+        <div class="form-group mb-4">
+            <label>Manuscript title</label>
+            <input type="text" name="title" class="form-control mb-3 shadow-sm" placeholder="Enter manuscript title"/>
+        </div>
+        <div class="form-group">
+            <label>Authors list (e.g. Stefan Despotovski, Ana Lijanova, Samir Idrizi...)</label>
+            <input type="text" name="keywords" class="form-control mb-3 shadow-sm" placeholder="Enter keywords"/>
+        </div>
+        <div class="form-group mb-4">
+            <label>Add .docx format only (Word)</label><br>
+            <input type="file" name="file" class="shadow-sm" placeholder="Upload file"/>
+        </div>
+        <div class="form-group">
+            <label>Keywords</label>
+            <input type="text" name="keywords" class="form-control mb-3 shadow-sm" placeholder="Enter keywords"/>
+        </div>
+
+
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary shadow-sm" style="border-radius: 10px; ">Submit for
+                review
+            </button>
+
+        </div>
+    </form>
+</div>
+
+
+<script>
+    const validateForm = () => {
+        // get form values
+        const email = document.querySelector('input[name="email"]').value;
+        const phone = document.querySelector('input[name="phone"]').value;
+        const mainAuthor = document.querySelector('input[name="main_author"]').value;
+        const authorAddress = document.querySelector('input[name="author_full_address"]').value;
+        const title = document.querySelector('input[name="title"]').value;
+        const authors = document.querySelector('input[name="keywords"]').value;
+        const file = document.querySelector('input[name="file"]').value;
+        const keywords = document.querySelector('input[name="keywords"]').value;
+
+        // create an array to store any errors
+        const errors = [];
+
+        // validate email
+        if (!email || !email.includes('@')) {
+            errors.push('Please enter a valid email address');
+        }
+
+        // validate phone
+        if (!phone || phone.length < 9) {
+            errors.push('Please enter a valid phone number');
+        }
+
+        // validate main author
+        if (!mainAuthor || mainAuthor.length < 2) {
+            errors.push('Please enter a valid main author name');
+        }
+
+        // validate author address
+        if (!authorAddress || authorAddress.length < 10) {
+            errors.push('Please enter a valid author address');
+        }
+
+        // validate title
+        if (!title || title.length < 5) {
+            errors.push('Please enter a valid manuscript title');
+        }
+
+        // validate authors list
+        if (!authors || authors.length < 5) {
+            errors.push('Please enter a valid list of authors');
+        }
+
+        // validate file
+        if (!file || !file.endsWith('.docx')) {
+            errors.push('Please upload a file in .docx format');
+        }
+
+        // validate keywords
+        if (!keywords || keywords.length < 5) {
+            errors.push('Please enter a valid list of keywords');
+        }
+
+        // check if there are any errors
+        if (errors.length > 0) {
+            // display errors
+            alert(errors.join('\n'));
+            return false;
+        }
+
+        // form is valid
+        return true;
+    }
+
+</script>
+
+
+</body>
+</html>

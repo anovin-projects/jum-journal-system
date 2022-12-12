@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from tinymce.models import HTMLField
 
+
 class Sections(models.Model):
     title = models.CharField(max_length=30)
 
@@ -143,3 +144,16 @@ class Journal(models.Model):
     issn = models.CharField(max_length=12)
     contact = models.ForeignKey(Contact, on_delete=models.CASCADE)
     posts = models.ManyToManyField(Post)
+
+
+class ManuscriptReview(models.Model):
+    email = models.EmailField(max_length=255, verbose_name='email')
+    phone = models.CharField(max_length=255, verbose_name='phone')
+    main_author = models.CharField(max_length=255, verbose_name='main_author')
+    title = models.CharField(max_length=255, verbose_name='Manuscript title')
+    file = models.FileField(upload_to='review/manuscripts/')
+    keywords = models.CharField(max_length=255, verbose_name='keywords')
+    author_full_address = models.CharField(max_length=255, verbose_name='author_full_address')
+
+    def __str__(self):
+        return self.main_author

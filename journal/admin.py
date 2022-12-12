@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Manuscript, Author, Sections, Announcement, PostTag, Post, Volume, Bug, Contact, Issue
+from .models import Manuscript, Author, Sections, Announcement, PostTag, Post, Volume, Bug, Contact, Issue, ManuscriptReview
 from tinymce.widgets import TinyMCE
 from django.db import models
 from django.forms import CheckboxSelectMultiple
@@ -43,5 +43,6 @@ admin.site.register(Post, PostAdmin)
 admin.site.register(Author)
 admin.site.register(Bug)
 admin.site.register(Contact)
+admin.site.register(ManuscriptReview)
 
 admin.site.register(Issue)

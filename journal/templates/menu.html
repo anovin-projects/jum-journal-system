@@ -32,17 +32,18 @@
             <li class="nav-item active">
                 <a class="nav-link btn badge-pill" href="{% url 'index' %}">Home</a>
             </li>
-            <a class="nav-link btn badge-pill" href="{% url 'index' %}#aim">Aim and scope</a>
-            <a class="nav-link btn badge-pill" href="{% url 'index' %}#core">Core</a>
-            <a class="nav-link btn badge-pill" href="{% url 'index' %}#volumes">Volumes</a>
             <a class="nav-link btn badge-pill text-dark" href="{% url 'advanced_search' %}">Search</a>
+            <a class="nav-link btn badge-pill text-dark" href="{% url 'submit' %}">Submit an article for review</a>
+
         </ul>
         <hr>
 
         <div class="d-flex pt-1 pb-1 mt-2 mb-2 d-flex justify-content-center justify-content-lg-end align-items-center w-100"
              style="border-radius:10px;">
-            <a class="badge  btn-outline-light p-2  ms-1 mx-2 shadow-sm text-dark" href="{% url 'contact' %}">Contact</a>
-            <a class="badge  btn-outline-success p-2 mx-2 mx-md-1 shadow-sm" href="https://journal.anovin.mk/api/">API</a>
+            <a class="badge  btn-outline-light p-2  ms-1 mx-2 shadow-sm text-dark"
+               href="{% url 'contact' %}">Contact</a>
+            <a class="badge  btn-outline-success p-2 mx-2 mx-md-1 shadow-sm"
+               href="https://journal.anovin.mk/api/">API</a>
             <a class="badge  btn-outline-danger p-2 mx-2 shadow-sm" href="{% url 'report' %}">Report an issue</a>
         </div>
         <hr>

@@ -1,11 +1,11 @@
 import json
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Manuscript, Volume, Author
+from .models import Manuscript, Volume, Author, ManuscriptReview
 from django.db.models import Count
 from .forms import BugForm, ContactForm
 from .filters import ManuscriptFilter
 from django.core.mail import send_mail
-
+from django.http import HttpResponse
 
 def index(request):
     # This query gives the totals for each degree in a dictionary, then we pass it into the view and loop over it to
@@ -180,3 +180,25 @@ def contact(request):
             contact_form = ContactForm()
 
     return render(request, 'contact.html', {'contact_form': contact_form})
+
+
+def submit(request):
+    if request.method == 'POST':
+        if request.method == 'POST':
+            email = request.POST['email']
+            phone = request.POST['phone']
+            main_author = request.POST['main_author']
+            author_full_address = request.POST['author_full_address']
+            title = request.POST['title']
+            file = request.FILES['file']
+            keywords = request.POST['keywords']
+
+            manuscript_review = ManuscriptReview(email=email, phone=phone, main_author=main_author,
+                                                 author_full_address=author_full_address, title=title, file=file,
+                                                 keywords=keywords)
+            manuscript_review.save()
+            return redirect('thanks')
+        else:
+            return HttpResponse('Error saving manuscript review')
+
+    return render(request, 'submit.html', context=None)

@@ -24,6 +24,7 @@ urlpatterns = [
     path('abstract/<slug_field>/', views.abstract, name='abstract-detail'),
     path('author/<id>/', views.author, name='author'),
     path('volume/<name>', volumeview, name='volume_view'),
+path('submit/', views.submit, name='submit'),
     path('thanks/', views.thanks, name='thanks'),
     path('report/', views.report, name='report'),
     path('contact/', views.contact, name='contact'),
